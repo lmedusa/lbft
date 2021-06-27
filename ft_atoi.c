@@ -1,34 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lmedusa <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/19 16:29:40 by lmedusa           #+#    #+#             */
-/*   Updated: 2020/06/01 14:13:48 by lmedusa          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
-static int		ft_check(char s)
+static int		check_controls(char s)
 {
-	if (s == ' ' || s == '\t' || s == '\n' || s == '\v')
-		return (1);
-	else if (s == '\f' || s == '\r')
+	if (s == ' ' || s == '\t' || s == '\n' || s == '\v' || s == '\f' || s == '\r')
 		return (1);
 	return (0);
 }
 
 static char		*ft_spc(char *s)
 {
-	int			i;
+	size_t			i;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (ft_check(s[i]) == 1)
+		if (check_controls(s[i]) == 1)
 			i++;
 		else if (s[i] == '+' || s[i] == '-')
 		{

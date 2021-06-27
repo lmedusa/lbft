@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lmedusa <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/28 14:55:51 by lmedusa           #+#    #+#             */
-/*   Updated: 2020/06/01 14:18:58 by lmedusa          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
-static void		*ft_cc(void *d, const void *s, size_t n)
+static void		*ft_cat(void *d, const void *s, size_t n)
 {
 	unsigned char	*df;
 	unsigned char	*sf;
@@ -47,7 +35,7 @@ size_t			ft_strlcat(char *dest, const char *src, size_t dstsz)
 		len = dstsz - 1 - dsize;
 	else
 		len = ssize;
-	ft_cc(dest + dsize, src, len);
+	ft_cat(dest + dsize, src, len);
 	dest[dsize + len] = '\0';
 	return (ssize + dsize);
 }

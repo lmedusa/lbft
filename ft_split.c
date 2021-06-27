@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lmedusa <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/31 21:35:36 by lmedusa           #+#    #+#             */
-/*   Updated: 2020/11/17 02:37:45 by lmedusa          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
 static size_t	ft_numword(char const *s, char c)
@@ -48,7 +36,7 @@ static size_t	ft_lenword(char const *s, char c)
 	return (len);
 }
 
-void			ft_leak(char **res, size_t i)
+static void			ft_leak(char **res, size_t i)
 {
 	while (i)
 		ft_strdel(&res[--i]);
@@ -81,21 +69,4 @@ char			**ft_split(char const *s, char c)
 	}
 	res[i] = NULL;
 	return (res);
-}
-
-#include <stdio.h>
-
-int		main(int argc, char *argv[1])
-{
-	char *s = "sdfsdfkl8sdfsdkf8sdfsdf8sdfsd";
-	char c;
-	c = *argv[1];
-	char **ss = ft_split(s, c);
-	int i = 0;
-	while (ss[i])
-	{
-		printf("%s\n", ss[i]);
-		i++;
-	}
-	return (0);
 }
